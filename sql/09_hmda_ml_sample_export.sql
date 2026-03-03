@@ -6,6 +6,7 @@ WITH (
     external_location = 's3://"your-bucket"/ml/sample_parquet/'
 ) AS
 SELECT
+    year,
     approved_flag,
     income_000s,
     loan_amount_000s,
