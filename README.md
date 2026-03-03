@@ -1,2 +1,83 @@
-# US-HMDA-Mortgage-Dataset-Analysis
-Analysis of 5 years (2019–2023) of US HMDA mortgage data using AWS (S3, Athena, Parquet) and Power BI. Built a partitioned data pipeline, engineered underwriting features (income bands, DTI bands, loan-to-income ratio, approval flag), and developed dashboards to examine approval trends, denial patterns, and lending structure across economic cycles.
+# US HMDA Mortgage Dataset Analysis
+
+## Project Overview
+
+This project analyzes five years (2019–2023) of U.S. mortgage loan-level data from the Home Mortgage Disclosure Act (HMDA) dataset. The objective is to examine underwriting patterns, approval trends, denial behavior, and lending structure across changing economic conditions.
+
+The workflow was implemented entirely within AWS for data processing, with Power BI used for executive-level visualization.
+
+---
+
+## Technology Stack
+
+- Amazon S3 – Raw data storage
+- Amazon Athena – SQL-based querying
+- Partitioned Parquet – Performance and cost optimization
+- Power BI – Dashboard visualization
+
+---
+
+## Data Architecture
+
+HMDA Pipe Files (S3 raw/)
+↓
+Athena External Table (hmda_raw)
+↓
+Partitioned Parquet Table (hmda_parquet)
+↓
+Feature Engineering View (hmda_underwriting_features)
+↓
+Power BI Dashboard
+
+
+---
+
+## Data Pipeline
+
+### 1. Raw Data Layer
+- Uploaded HMDA pipe-delimited Loan Application Register (LAR) files (2019–2023) to Amazon S3.
+- Created a partitioned external table in Athena.
+
+### 2. Parquet Optimization
+- Converted raw pipe files into a partitioned Parquet table using CTAS.
+- Reduced scan cost and improved query performance.
+
+### 3. Feature Engineering Layer
+Created a structured analytical view with derived underwriting features:
+
+- Loan-to-income ratio
+- Income bands
+- Debt-to-income bands
+- Loan size buckets
+- Approval flag (based on action_taken)
+- Channel and purchaser labels
+- Minority tract indicators
+
+### 4. Validation & QA
+Performed structured validation checks:
+- Row count reconciliation (raw vs parquet vs feature view)
+- Approval rate verification by year
+- Volume checks by loan type
+- Distribution consistency checks
+
+---
+
+## Analytical Focus Areas
+
+- Approval rate trends across years
+- Income segmentation analysis
+- Loan size distribution
+- Denial reason patterns
+- Channel distribution (Direct, Broker, Correspondent)
+- Secondary market purchaser trends
+- Minority tract approval comparisons
+
+---
+
+## Dataset Scale
+
+- Approximately 30GB of raw mortgage data
+- ~5 years of national loan-level records
+- Partitioned by year for optimized querying
+
+---
