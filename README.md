@@ -81,3 +81,52 @@ Performed structured validation checks:
 - Partitioned by year for optimized querying
 
 ---
+
+## Power BI Dashboard
+
+An executive Power BI dashboard was developed to analyze:
+
+- Approval rates across years
+- Loan structure segmentation
+- Denial reason patterns
+- Channel and purchaser distributions
+- Mortgage volume trends
+
+The dashboard integrates structured underwriting features and derived risk metrics for exploratory analysis.
+
+---
+
+## Machine Learning Model
+
+A scalable logistic regression model was built to classify mortgage approval outcomes using 8.27 million applications.
+
+### Key Results
+
+- ROC-AUC: 0.913
+- Accuracy: 81.9%
+- Approval Precision: 90.3%
+- Approval Recall: 79.1%
+
+The model demonstrates strong separability between approved and denied loans using structured underwriting variables.
+
+### Business Insights
+
+- Higher borrower income materially increases approval probability
+- Higher leverage (Loan-to-Income) reduces approval likelihood
+- Channel and secondary market structure influence underwriting outcomes
+
+### Model Monitoring
+
+Performance stability was evaluated across years using ROC-AUC drift and portfolio-level leverage trends.
+
+No significant model degradation was observed.
+
+---
+
+## Technology Stack
+
+- AWS S3 (Data Lake)
+- Amazon Athena (SQL & Parquet optimization)
+- Python (pandas, scikit-learn)
+- SageMaker (Model training)
+- Power BI (Visualization & Reporting)
