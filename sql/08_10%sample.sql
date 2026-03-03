@@ -1,0 +1,4 @@
+CREATE OR REPLACE VIEW hmda_ml_sample AS
+SELECT *
+FROM hmda_ml_dataset_clean
+TABLESAMPLE BERNOULLI (10);
