@@ -1,83 +1,73 @@
-## Machine Learning Modeling – Mortgage Underwriting Classification
+# Machine Learning – Mortgage Underwriting Classification
 
-A scalable logistic regression model was developed using **Stochastic Gradient Descent (SGDClassifier)** to predict mortgage approval outcomes using structured underwriting features from the US HMDA dataset.
+## Overview
 
----
+A scalable logistic regression model was developed using stochastic gradient descent (SGDClassifier) to classify mortgage approval outcomes from the US HMDA dataset.
 
-### Dataset Overview
-
-- **Sample Size:** 8.27 million mortgage applications  
-- **Target Variable:** `approved_flag`  
-  - `1` = Approved  
-  - `0` = Denied  
-- **Class Distribution:**  
-  - 61.6% Approved  
-  - 38.4% Denied  
-
-Features include borrower income, loan structure, census tract characteristics, leverage ratios, channel type, and purchaser type.
+The objective was to evaluate whether structured underwriting variables can effectively distinguish approved and denied applications at scale.
 
 ---
 
-### Feature Engineering & Modeling Approach
+## Dataset
 
-- Engineered **Loan-to-Income (LTI)** ratio  
-- Removed extreme LTI outliers for numerical stability  
-- Applied **log transformation** to income and loan amount  
-- One-hot encoded categorical features  
-- Standardized numerical variables  
-- 80/20 train-test split  
-- Logistic regression trained using **SGD (log-loss objective)** for scalability  
-
-This approach ensures the model scales efficiently across multi-million record datasets.
+- Sample Size: 8.27 million mortgage applications
+- Target Variable: `approved_flag`
+  - 1 = Approved
+  - 0 = Denied
+- Class Distribution:
+  - 61.6% Approved
+  - 38.4% Denied
 
 ---
 
-### Model Performance
+## Feature Engineering
+
+- Engineered Loan-to-Income (LTI) ratio
+- Removed extreme LTI outliers (>20)
+- Log transformation applied to income and loan amount
+- One-hot encoding for categorical features
+- Standard scaling for numerical stability
+
+---
+
+## Modeling Approach
+
+- Logistic regression trained using SGD (log-loss objective)
+- 80/20 train-test split
+- Parallelized optimization
+- Converged in 7 epochs
+
+---
+
+## Model Performance
 
 | Metric | Value |
 |--------|--------|
-| **ROC-AUC** | **0.913** |
-| **Accuracy** | **81.9%** |
-| **Approval Precision** | **90.3%** |
-| **Approval Recall** | **79.1%** |
-| **Denial Recall** | **86.5%** |
-| **F1 Score (Approved)** | **0.84** |
+| ROC-AUC | 0.913 |
+| Accuracy | 81.9% |
+| Approval Precision | 90.3% |
+| Approval Recall | 79.1% |
+| Denial Recall | 86.5% |
+| F1 Score (Approved) | 0.84 |
 
 ---
 
-### Interpretation
+## Interpretation
 
-- The **ROC-AUC of 0.913** indicates excellent separability between approved and denied loans.
-- High **precision (90%)** suggests low false-approval risk.
-- Strong denial recall (86.5%) demonstrates effective identification of rejected applications.
-- The model converged efficiently in 7 epochs using parallelized SGD.
+The model demonstrates strong discriminatory power (AUC > 0.90).
 
----
+Higher borrower income and favorable loan structures increase approval likelihood, while higher leverage (Loan-to-Income) reduces approval probability.
 
-### Key Drivers of Approval
-
-**Positive Influences:**
-- Higher borrower income
-- Favorable lien structures
-- Government-backed purchaser channels (e.g., Ginnie Mae)
-- Higher tract income percentage
-
-**Negative Influences:**
-- Higher loan-to-income ratios (leverage sensitivity)
-- Correspondent lending channel
-- Certain loan types
-- Loans retained on balance sheet
+Channel and purchaser type significantly influence underwriting outcomes.
 
 ---
 
-### Business Implication
+## Monitoring
 
-The model captures core underwriting dynamics at scale:
+Model stability was evaluated by:
 
-- Income strength materially increases approval likelihood  
-- Higher leverage reduces approval probability  
-- Channel and secondary market structure significantly influence outcomes  
+- ROC-AUC by year
+- Approval rate drift over time
+- Average Loan-to-Income trends
 
-The strong ROC-AUC confirms that structured underwriting variables alone provide substantial predictive power.
-
----
+No significant degradation in predictive power was observed across years.
