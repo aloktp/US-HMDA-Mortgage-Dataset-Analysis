@@ -19,7 +19,7 @@ The workflow was implemented entirely within AWS for data processing, with Power
 - Python (pandas, scikit-learn)
 - SageMaker (Model training)
 - Power BI (Visualization & Reporting)
-- 
+  
 ---
 
 ## Data Architecture
