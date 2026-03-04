@@ -1,5 +1,9 @@
 # US HMDA Mortgage Dataset Analysis
 
+## Case Study Question
+
+Does borrower income, leverage, loan structure, and channel information explain mortgage approval outcomes in the HMDA dataset?
+
 ## Project Overview
 
 This project analyzes five years (2019–2023) of U.S. mortgage loan-level data from the Home Mortgage Disclosure Act (HMDA) dataset. The objective is to examine underwriting patterns, approval trends, denial behavior, and lending structure across changing economic conditions.
@@ -99,6 +103,15 @@ The dashboard integrates structured underwriting features and derived risk metri
 ## Machine Learning Model
 
 A scalable logistic regression model was built to classify mortgage approval outcomes using 8.27 million applications.
+
+- Predict mortgage approval outcomes from structured underwriting variables
+- Binary classification problem (Approved vs Denied)
+- Logistic regression chosen for interpretable credit decision modeling
+- SGDClassifier (log-loss) used for scalable training on millions of records (8.2M sample)
+- 80/20 train-test split
+- Standardized numerical features
+- Parallelized optimization for efficient training
+- Converged in 7 epochs
 
 ### Key Results
 
