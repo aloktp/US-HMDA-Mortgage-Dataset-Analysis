@@ -1,5 +1,9 @@
 # Machine Learning – Mortgage Underwriting Classification
 
+## Case Study Question
+
+Does borrower income, leverage, loan structure, and channel information explain mortgage approval outcomes in the HMDA dataset?
+
 ## Overview
 
 A scalable logistic regression model was developed using stochastic gradient descent (SGDClassifier) to classify mortgage approval outcomes from the US HMDA dataset.
@@ -32,9 +36,13 @@ The objective was to evaluate whether structured underwriting variables can effe
 
 ## Modeling Approach
 
-- Logistic regression trained using SGD (log-loss objective)
+- Predict mortgage approval outcomes from structured underwriting variables
+- Binary classification problem (Approved vs Denied)
+- Logistic regression chosen for interpretable credit decision modeling
+- SGDClassifier (log-loss) used for scalable training on millions of records (8.2M sample)
 - 80/20 train-test split
-- Parallelized optimization
+- Standardized numerical features
+- Parallelized optimization for efficient training
 - Converged in 7 epochs
 
 ---
