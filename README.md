@@ -14,25 +14,17 @@ The workflow was implemented entirely within AWS for data processing, with Power
 
 ## Technology Stack
 
-- Amazon S3 – Raw data storage
-- Amazon Athena – SQL-based querying
-- Partitioned Parquet – Performance and cost optimization
-- Power BI – Dashboard visualization
-
+- AWS S3 (Data Lake)
+- Amazon Athena (SQL & Parquet optimization)
+- Python (pandas, scikit-learn)
+- SageMaker (Model training)
+- Power BI (Visualization & Reporting)
+- 
 ---
 
 ## Data Architecture
 
-HMDA Pipe Files (S3 raw/)
-↓
-Athena External Table (hmda_raw)
-↓
-Partitioned Parquet Table (hmda_parquet)
-↓
-Feature Engineering View (hmda_underwriting_features)
-↓
-Power BI Dashboard
-
+HMDA Pipe Files (S3 raw/) ➝ Athena External Table (hmda_raw) ➝ Partitioned Parquet Table (hmda_parquet)  Feature Engineering View (hmda_underwriting_features) ➝ Power BI Dashboard
 
 ---
 
@@ -135,11 +127,3 @@ Performance stability was evaluated across years using ROC-AUC drift and portfol
 No significant model degradation was observed.
 
 ---
-
-## Technology Stack
-
-- AWS S3 (Data Lake)
-- Amazon Athena (SQL & Parquet optimization)
-- Python (pandas, scikit-learn)
-- SageMaker (Model training)
-- Power BI (Visualization & Reporting)
