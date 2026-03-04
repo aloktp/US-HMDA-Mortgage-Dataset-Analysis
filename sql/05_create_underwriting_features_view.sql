@@ -10,7 +10,7 @@ SELECT
     conforming_loan_limit,
 
     TRY_CAST(income AS double) AS income_000s,
-    TRY_CAST(loan_amount AS double) AS loan_amount_000s,
+    TRY_CAST(loan_amount AS double) AS loan_amount,
     TRY_CAST(rate_spread AS double) AS rate_spread,
     TRY_CAST(tract_minority_population_percent AS double) AS tract_minority_pct,
     TRY_CAST(tract_to_msa_income_percentage AS double) AS tract_income_pct,
@@ -39,7 +39,6 @@ SELECT
         ELSE NULL
     END AS denial_reason_label,
 
-    -- SAFE CHANNEL LABEL (force varchar)
     CASE
         WHEN CAST(initially_payable_to_institution AS varchar) = '1' THEN 'Direct'
         WHEN CAST(initially_payable_to_institution AS varchar) = '2' THEN 'Broker'
@@ -47,7 +46,6 @@ SELECT
         ELSE 'Other'
     END AS channel_label,
 
-    -- SAFE PURCHASER LABEL
     CASE
         WHEN CAST(purchaser_type AS varchar) = '0' THEN 'Retained'
         WHEN CAST(purchaser_type AS varchar) = '1' THEN 'Fannie Mae'
@@ -57,13 +55,15 @@ SELECT
         ELSE 'Other'
     END AS purchaser_label,
 
+    -- Correct Loan-to-Income Ratio
     TRY_CAST(loan_amount AS double) /
-        NULLIF(TRY_CAST(income AS double), 0) AS loan_to_income_ratio,
+        NULLIF(TRY_CAST(income AS double) * 1000, 0) AS loan_to_income_ratio,
 
+    -- Correct Income Bands (income is in thousands)
     CASE 
-        WHEN TRY_CAST(income AS double) < 40000 THEN 'Low'
-        WHEN TRY_CAST(income AS double) BETWEEN 40000 AND 100000 THEN 'Middle'
-        WHEN TRY_CAST(income AS double) > 100000 THEN 'High'
+        WHEN TRY_CAST(income AS double) < 40 THEN 'Low'
+        WHEN TRY_CAST(income AS double) BETWEEN 40 AND 100 THEN 'Middle'
+        WHEN TRY_CAST(income AS double) > 100 THEN 'High'
         ELSE 'Unknown'
     END AS income_band,
 
