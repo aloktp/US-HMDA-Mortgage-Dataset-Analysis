@@ -24,7 +24,7 @@ The workflow was implemented entirely within AWS for data processing, with Power
 
 ## Data Architecture
 
-HMDA Pipe Files (S3 raw/) ➝ Athena External Table (hmda_raw) ➝ Partitioned Parquet Table (hmda_parquet)  Feature Engineering View (hmda_underwriting_features) ➝ Power BI Dashboard
+HMDA Pipe Files (S3 raw/) ➝ Athena External Table (hmda_raw) ➝ Partitioned Parquet Table (hmda_parquet) ➝ Feature Engineering View (hmda_underwriting_features) ➝ Power BI Dashboard
 
 ---
 
