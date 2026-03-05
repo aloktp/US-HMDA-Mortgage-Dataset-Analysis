@@ -17,7 +17,7 @@ The workflow was implemented entirely within AWS for data processing, with Power
 - AWS S3 (Data Lake)
 - Amazon Athena (SQL & Parquet optimization)
 - Python (pandas, scikit-learn)
-- SageMaker (Model training)
+- Amazon SageMaker (Model training environment)
 - Power BI (Visualization & Reporting)
   
 ---
@@ -94,7 +94,7 @@ The dashboard integrates structured underwriting features and derived risk metri
 
 ## Machine Learning Model
 
-A scalable logistic regression model was built to classify mortgage approval outcomes using 8.27 million applications.
+A scalable logistic regression model was built to classify mortgage approval outcomes using 8.27 million mortgage applications from the HMDA dataset.
 
 - Predict mortgage approval outcomes from structured underwriting variables
 - Binary classification problem (Approved vs Denied)
@@ -107,7 +107,7 @@ A scalable logistic regression model was built to classify mortgage approval out
 
 ### Key Results
 
-- ROC-AUC: 0.913
+- ROC-AUC: 0.913 (strong separability of approval and denial of loan applications)
 - Accuracy: 81.9%
 - Approval Precision: 90.3%
 - Approval Recall: 79.1%
@@ -122,7 +122,7 @@ The model demonstrates strong separability between approved and denied loans usi
 
 ### Model Monitoring
 
-Performance stability was evaluated across years using ROC-AUC drift and portfolio-level leverage trends.
+Model stability was evaluated across years using ROC-AUC drift and portfolio-level leverage trends.
 
 No significant model degradation was observed.
 
