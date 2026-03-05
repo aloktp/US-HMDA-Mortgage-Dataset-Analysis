@@ -110,6 +110,9 @@ A scalable logistic regression model was built to classify mortgage approval out
 - Parallelized optimization for efficient training
 - Converged in 7 epochs
 
+## Dashboard Preview
+![ML Dashboard](screenshots/ml_dashboard_preview.png)
+
 ### Key Results
 
 - ROC-AUC: 0.913 (strong separability of approval and denial of loan applications)
