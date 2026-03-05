@@ -62,7 +62,7 @@ The objective was to evaluate whether structured underwriting variables can effe
 
 ## Interpretation
 
-The model demonstrates strong discriminatory power (AUC > 0.90).
+The model demonstrates strong discriminatory power (ROC-AUC 0.913).
 
 Higher borrower income and favorable loan structures increase approval likelihood, while higher leverage (Loan-to-Income) reduces approval probability.
 
