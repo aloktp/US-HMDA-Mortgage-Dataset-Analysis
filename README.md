@@ -13,7 +13,7 @@ The workflow was implemented entirely within AWS for data processing, with Power
 ---
 
 ## Dashboard Preview
-![HMDA Dashboard](screenshots/dashboard_overview.png)
+![HMDA Dashboard](screenshots/dashboard_preview.png)
 
 ---
 
