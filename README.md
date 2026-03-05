@@ -12,6 +12,11 @@ The workflow was implemented entirely within AWS for data processing, with Power
 
 ---
 
+## Dashboard Preview
+![HMDA Dashboard](screenshots/dashboard_overview.png)
+
+---
+
 ## Technology Stack
 
 - AWS S3 (Data Lake)
