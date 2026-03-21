@@ -1,3 +1,5 @@
+PLEASE CHECK THE FULL DASHBOARD IN THE US MORTGAGE DASHBOARD.PDF FILE.
+
 # US HMDA Mortgage Dataset Analysis
 
 ## Case Study Question
