@@ -73,7 +73,7 @@ Created structured underwriting features:
 
 ---
 
-# 📊 Business & Credit Analysis
+# Business & Credit Analysis
 
 ## 1. Mortgage Market Overview
 
@@ -140,7 +140,7 @@ Created structured underwriting features:
 
 ---
 
-# 🤖 Machine Learning Model
+# Machine Learning Model
 
 ## Model Overview
 
